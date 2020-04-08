@@ -5,36 +5,36 @@
 #include "RiceCooker.h"
 #include "Washer.h"
 #include "Power.h"
-int controlMenuSelect(string message, int menuCnt); // °¡ÀüÁ¦Ç°ÀÇ »óÅÂº¯°æ Ã³¸®¸¦ À§ÇÑ ¸Þ´º ÇÔ¼ö
-void displayTitle(string title); // Ã³¸®ÁßÀÎ ³»¿ë Ãâ·ÂÇÏ±â À§ÇÑ Å¸ÀÌÆ² Ãâ·ÂÇÔ¼ö 
-int inputInteger(char *message);  //  message¸¦ Ãâ·ÂÇÏ°í Á¤¼ö°ª ÀÔ·Â ¹Þ¾Æ ¸®ÅÏ(¹®ÀÚ, ½Ç¼ö°ª ¿¹¿Ü Ã³¸®)
-int inputInteger(string message); //  message¸¦ Ãâ·ÂÇÏ°í Á¤¼ö°ª ÀÔ·Â ¹Þ¾Æ ¸®ÅÏ(¹®ÀÚ, ½Ç¼ö°ª ¿¹¿Ü Ã³¸®)
-void myFlush();  // cinÀÔ·Â ¹öÆÛ¸¦ ¸ðµÎ ºñ¿ì°í fail»óÅÂ¸¦ ÃÊ±â»óÅÂ·Î Àç¼³Á¤
+int controlMenuSelect(string message, int menuCnt); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½Ô¼ï¿½
+void displayTitle(string title); // Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ 
+int inputInteger(char *message);  //  messageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½, ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½)
+int inputInteger(string message); //  messageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½, ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½)
+void myFlush();  // cinï¿½Ô·ï¿½ ï¿½ï¿½ï¿½Û¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ failï¿½ï¿½ï¿½Â¸ï¿½ ï¿½Ê±ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ç¼³ï¿½ï¿½
 
-#define APPLIANCE_MAX_CNT 20 // ÃÖ´ë µî·Ï °¡´ÉÇÑ °¡ÀüÁ¦Ç°ÀÇ °³¼ö
+#define APPLIANCE_MAX_CNT 20 // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 class HomeAutomation
 {
 public:
-	HomeAutomation(); // appliaceArrayÀÇ ¸Þ¸ð¸® ¿µ¿ªÀ» ¸ðµÎ 0À¸·Î ÃÊ±âÈ­ ÇÏ°í, applianceCnt¸¦ 0À¸·Î ÃÊ±âÈ­
+	HomeAutomation(); // appliaceArrayï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ï°ï¿½, applianceCntï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	HomeAutomation(const HomeAutomation &r); // deep copy constructor
-	~HomeAutomation(); // applianceArray¿¡ µ¿Àû ÇÒ´çµÈ °´Ã¼¸¦ ¸ðµÎ ÇØÁ¦ÇÔ
+	~HomeAutomation(); // applianceArrayï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	// getter, setter member function
-	Appliance ** getApplianceArray(); // applianceArray ¸â¹ö °ª ¹ÝÈ¯ ÇÔ¼ö
-	int getApplianceCnt() const; // applianceCnt ¸â¹ö °ª ¹ÝÈ¯ ÇÔ¼ö
+	Appliance ** getApplianceArray(); // applianceArray ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½
+	int getApplianceCnt() const; // applianceCnt ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½
 
 	// member function
-	HomeAutomation & operator=(const HomeAutomation &r); // ´ëÀÔ(ÇÒ´ç)¿¬»êÀÚ ¿À¹ö·Îµù ÇÔ¼ö
-	bool addAppliance(Appliance *ap);	// °¡ÀüÁ¦Ç°À» ¸ñ·Ï¿¡ Ãß°¡.  µ¿ÀÏÇÑ Á¦Ç°¸í Ãß°¡ ºÒ°¡´É. 
-	int searchMachine(string machineName); // °¡ÀüÁ¦Ç°¸í¿¡ ÇØ´çÇÏ´Â °¡ÀüÁ¦Ç°À» Ã£¾Æ¼­ ¹è¿­ÀÇ index¸®ÅÏ/¾øÀ» ½Ã -1 ¸®ÅÏ
-	bool deleteAppliance(string machineName); // °¡ÀüÁ¦Ç°¸í¿¡ ÇØ´çÇÏ´Â °¡ÀüÁ¦Ç°À» ¸ñ·Ï¿¡¼­ »èÁ¦ÇÏ´Ù
-	void listDisplayAppliance(); // µî·ÏµÈ °¡ÀüÁ¦Ç° ÀüÃ¼ ¸ñ·Ï ¹× »óÅÂ¸¦  È®ÀÎÇÏ´Ù
-	bool controlAppliance(string machineName);   // ÇØ´ç °¡ÀüÁ¦Ç°À» Á¦¾îÇÏ´Ù
-	void setStateAppliance(Appliance * ap); // ÄÑÁ®ÀÖ´Â °¡ÀüÁ¦Ç°ÀÇ »óÅÂ¸¦ º¯°æÇÏ´Ù
-	friend int Power::calPowerConsumption(HomeAutomation &rHa); // Power classÀÇ calPowerConsumption()¸â¹öÇÔ¼ö¸¦ friend µî·Ï
+	HomeAutomation & operator=(const HomeAutomation &r); // ï¿½ï¿½ï¿½ï¿½(ï¿½Ò´ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ ï¿½Ô¼ï¿½
+	bool addAppliance(Appliance *ap);	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½ß°ï¿½.  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½. 
+	int searchMachine(string machineName); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½è¿­ï¿½ï¿½ indexï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ -1 ï¿½ï¿½ï¿½ï¿½
+	bool deleteAppliance(string machineName); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	void listDisplayAppliance(); // ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½  È®ï¿½ï¿½ï¿½Ï´ï¿½
+	bool controlAppliance(string machineName);   // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	void setStateAppliance(Appliance * ap); // ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	friend int Power::calPowerConsumption(HomeAutomation &rHa); // Power classï¿½ï¿½ calPowerConsumption()ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ friend ï¿½ï¿½ï¿½
 private:
-	Appliance * applianceArray[APPLIANCE_MAX_CNT]; // µî·ÏµÈ °¡ÀüÁ¦Ç° °´Ã¼ÀÇ Á¤º¸ ÀúÀå ¹è¿­(µ¿Àû°´Ã¼ ÇÒ´ç ÈÄ ÁÖ¼ÒÀúÀå)
-	int applianceCnt; // µî·ÏµÈ °´Ã¼ÀÇ °³¼ö ÀúÀå 
+	Appliance * applianceArray[APPLIANCE_MAX_CNT]; // ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ ï¿½Ò´ï¿½ ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½)
+	int applianceCnt; // ï¿½ï¿½Ïµï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 };
 #endif

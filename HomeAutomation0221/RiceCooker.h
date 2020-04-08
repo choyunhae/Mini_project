@@ -5,16 +5,16 @@
 class RiceCooker : public Appliance
 {
 public:
-	RiceCooker(); // Appliance´Â default»ý¼ºÀÚ·Î »ý¼º, machineState´Â ¹«µ¿ÀÛÀ¸·Î ÃÊ±âÈ­
-	RiceCooker(string machineName, int powerConsumption); // Appliance´Â Overloaded »ý¼ºÀÚ·Î »ý¼º, machineState´Â ¹«µ¿ÀÛÀ¸·Î ÃÊ±âÈ­
+	RiceCooker(); // Applianceï¿½ï¿½ defaultï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½, machineStateï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	RiceCooker(string machineName, int powerConsumption); // Applianceï¿½ï¿½ Overloaded ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½, machineStateï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	// getter, setter member function
-	int getMachineState() const; // machineState ¸â¹ö °ª ¹ÝÈ¯ ÇÔ¼ö
-	void setMachineState(int machineState); // machineState ¸â¹ö ÃÊ±âÈ­ ÇÔ¼ö
+	int getMachineState() const; // machineState ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½
+	void setMachineState(int machineState); // machineState ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ô¼ï¿½
 	// member function
-	void stateView(); // °´Ã¼ÀÇ »óÅÂ Ãâ·Â
-	enum { NO_OPERATION = 1, WARM, COOK, HEAT }; // ¹ä¼ÜÀÇ »óÅÂ¸¦ ³ªÅ¸³»´Â ¿­°ÅÇü »ó¼ö
+	void stateView(); // ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	enum { NO_OPERATION = 1, WARM, COOK, HEAT }; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 private:
-	int machineState; // Á¦Ç°»óÅÂ(1:¹«µ¿ÀÛ, 2:º¸¿Â, 3:¹äÁþ±â, 4:µ¥¿ì±â)
+	int machineState; // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½(1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 2:ï¿½ï¿½ï¿½ï¿½, 3:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 4:ï¿½ï¿½ï¿½ï¿½ï¿½)
 
 };
 #endif

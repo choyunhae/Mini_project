@@ -2,35 +2,35 @@
 #define __APPLIANCE_H__
 
 #include <string>
-#include <time.h>  // ½Ã½ºÅÛ ½Ã°£À» ÀÐ¾î¿À±â À§ÇØ include
+#include <time.h>  // ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ include
 #include <iostream>
 using namespace std;
 
 class Appliance
 {
 public:
-	// constructor, destructor : deep copy cons.¿Í destructor´Â º°µµ·Î ¼±¾ðÁ¤ÀÇ ¾ÈÇÔ
+	// constructor, destructor : deep copy cons.ï¿½ï¿½ destructorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	Appliance();  // default constructor (machineName:Null string, powerFlag:false, powerConsumption:0, startHour:0, useHour:0)
 	Appliance(string machineName, int powerConsumption, bool powerFlag = false, time_t startHour = 0, time_t useHour = 0);
-	virtual ~Appliance() { } // °¡»ó ¼Ò¸êÀÚ
+	virtual ~Appliance() { } // ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½
 	// getter, setter member function
-	string getMachineName() const;  // machineName ¸â¹ö°ª ¹ÝÈ¯ ÇÔ¼ö
-	bool getPowerFlag() const; // powerFlag ¸â¹ö °ª ¹ÝÈ¯ ÇÔ¼ö 
-	int getPowerConsumption() const; // powerConsumtion ¸â¹ö °ª ¹ÝÈ¯ ÇÔ¼ö
-	time_t getStartHour(); // startHour ¸â¹ö °ª ¹ÝÈ¯ ÇÔ¼ö
-	time_t getUseHour(); // useHour ¸â¹ö °ª ¹ÝÈ¯ ÇÔ¼ö
-	void setMachineName(string machineName);  // machineName ¸â¹ö ÃÊ±âÈ­ ÇÔ¼ö
-	void setPowerFlag(bool powerFlag); // powerFlag ¸â¹ö ÃÊ±âÈ­ ÇÔ¼ö 
-	void setPowerConsumption(int powerConsumption); // powerConsumtion ¸â¹ö ÃÊ±âÈ­ ÇÔ¼ö
+	string getMachineName() const;  // machineName ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½
+	bool getPowerFlag() const; // powerFlag ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½ 
+	int getPowerConsumption() const; // powerConsumtion ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½
+	time_t getStartHour(); // startHour ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½
+	time_t getUseHour(); // useHour ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½
+	void setMachineName(string machineName);  // machineName ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ô¼ï¿½
+	void setPowerFlag(bool powerFlag); // powerFlag ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ô¼ï¿½ 
+	void setPowerConsumption(int powerConsumption); // powerConsumtion ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ô¼ï¿½
 	// member fucntion
-	virtual bool turnOn(); // Á¦Ç°À» ÄÑ´Ù
-	virtual bool turnOff(); // Á¦Ç°À» ²ô´Ù
-	virtual void stateView() = 0; // ¼ø¼ö°¡»óÇÔ¼ö : Á¦Ç°ÀÇ »óÅÂ¸¦ Ãâ·ÂÇÏ´Ù
+	virtual bool turnOn(); // ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½Ñ´ï¿½
+	virtual bool turnOff(); // ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	virtual void stateView() = 0; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ : ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
 private:
-	string machineName;  // °¡ÀüÁ¦Ç°¸í
-	bool powerFlag;  // Àü¿ø on_off»óÅÂ(on-ture, off-false)
-	int powerConsumption; // ½Ã°£´ç  Àü·Â¼Ò¸ð·®
-	time_t startHour;  // Á¦Ç° »ç¿ë ½ÃÀÛ½Ã°£
-	time_t useHour;    // Á¦Ç° »ç¿ë ´©Àû½Ã°£ ÀúÀå ¸â¹ö
+	string machineName;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½
+	bool powerFlag;  // ï¿½ï¿½ï¿½ï¿½ on_offï¿½ï¿½ï¿½ï¿½(on-ture, off-false)
+	int powerConsumption; // ï¿½Ã°ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½Â¼Ò¸ï¿½
+	time_t startHour;  // ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û½Ã°ï¿½
+	time_t useHour;    // ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 };
 #endif

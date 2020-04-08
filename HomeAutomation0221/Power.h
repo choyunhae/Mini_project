@@ -2,12 +2,12 @@
 #define __POWER_H__
 #include "Appliance.h"
 
-class HomeAutomation;  // Àü¹æ¼±¾ð(foward ¼±¾ð¹®)
+class HomeAutomation;  // ï¿½ï¿½ï¿½æ¼±ï¿½ï¿½(foward ï¿½ï¿½ï¿½ï¿½)
 
 class Power
 {
 public:
-	Power(){}; // sumPower¸â¹ö¸¦ parameter·Î ÃÊ±âÈ­
-	int calPowerConsumption(HomeAutomation &rHa);  // °¡Àü Á¦Ç°ÀÇ Àü·Â ¼Ò¸ð·®À» ´©ÀûÇÔ
+	Power(){}; // sumPowerï¿½ï¿½ï¿½ï¿½ï¿½ parameterï¿½ï¿½ ï¿½Ê±ï¿½È­
+	int calPowerConsumption(HomeAutomation &rHa);  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 #endif

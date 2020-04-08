@@ -39,22 +39,22 @@ AirConditioner&AirConditioner::operator--()
 }
 void AirConditioner::stateView()
 {
-	cout << "Á¦Ç°¸í : " << getMachineName();
+	cout << "ï¿½ï¿½Ç°ï¿½ï¿½ : " << getMachineName();
 	if (this->getPowerFlag() == true)
 	{
-		cout << "(ON)" << " " << "¼³Á¤»óÅÂ : ";
+		cout << "(ON)" << " " << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ";
 		if (this->machineState == 1){
-			cout << "¼ÛÇ³";
+			cout << "ï¿½ï¿½Ç³";
 		}
 		else if (this->machineState == 2)
 		{
-			cout << "³Ã¹æ";
+			cout << "ï¿½Ã¹ï¿½";
 		}
 		else if (this->machineState == 3)
 		{
-			cout << "³­¹æ";
+			cout << "ï¿½ï¿½ï¿½ï¿½";
 		}
-		cout << "(¼³Á¤¿Âµµ : " << this->getSetTemperature() << ")" << endl;
+		cout << "(ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ : " << this->getSetTemperature() << ")" << endl;
 	}
 	if (this->getPowerFlag() == false)
 	{

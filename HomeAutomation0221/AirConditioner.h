@@ -5,20 +5,20 @@
 class AirConditioner : public Appliance
 {
 public:
-	AirConditioner(); // Appliance´Â default »ý¼ºÀÚ·Î »ý¼º, machineState´Â ¼ÛÇ³À¸·Î ÃÊ±âÈ­
-	AirConditioner(string machineName, int powerConsumption);// Appliance´Â Overloaded »ý¼ºÀÚ·Î »ý¼º, machineState´Â ¼ÛÇ³À¸·Î ÃÊ±âÈ­
+	AirConditioner(); // Applianceï¿½ï¿½ default ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½, machineStateï¿½ï¿½ ï¿½ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	AirConditioner(string machineName, int powerConsumption);// Applianceï¿½ï¿½ Overloaded ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½, machineStateï¿½ï¿½ ï¿½ï¿½Ç³ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	// getter, setter member function
-	int getMachineState() const; // machineState ¸â¹ö°ª ¹ÝÈ¯ ÇÔ¼ö
-	int getSetTemperature() const;  // setTemperature ¸â¹ö°ª ¹ÝÈ¯ ÇÔ¼ö
-	void setMachineState(int machineState); // machineState ¸â¹ö ÃÊ±âÈ­ ÇÔ¼ö
-	void setSetTemperature(int setTemperature); // setTemperature ¸â¹ö ÃÊ±âÈ­ ÇÔ¼ö
+	int getMachineState() const; // machineState ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½
+	int getSetTemperature() const;  // setTemperature ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½
+	void setMachineState(int machineState); // machineState ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ô¼ï¿½
+	void setSetTemperature(int setTemperature); // setTemperature ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ô¼ï¿½
 	// member function
-	AirConditioner & operator++(); // ¼³Á¤ ¿Âµµ¸¦ 1µµ¾¿ ¿Ã¸°´Ù(prefix increment)
-	AirConditioner & operator--(); // ¼³Á¤ ¿Âµµ¸¦ 1µµ¾¿ ³»¸°´Ù(prefix decrement)
-	void stateView();  // °´Ã¼ÀÇ »óÅÂ Ãâ·Â
-	enum { SENDAIR = 1, COOLER, HEATER }; // ¼ÛÇ³, ³Ã¹æ, ³­¹æÀ» ³ªÅ¸³»´Â ¿­°ÅÇü »ó¼ö
+	AirConditioner & operator++(); // ï¿½ï¿½ï¿½ï¿½ ï¿½Âµï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½(prefix increment)
+	AirConditioner & operator--(); // ï¿½ï¿½ï¿½ï¿½ ï¿½Âµï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(prefix decrement)
+	void stateView();  // ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	enum { SENDAIR = 1, COOLER, HEATER }; // ï¿½ï¿½Ç³, ï¿½Ã¹ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 private:
-	int machineState;     // Á¦Ç°»óÅÂ(1:¼ÛÇ³, 2:³Ã¹æ, 3:³­¹æ) - ±âº»»óÅÂ : ¼ÛÇ³
-	int setTemperature;   // ¼³Á¤¿Âµµ - ±âº»°ª 25µµ
+	int machineState;     // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½(1:ï¿½ï¿½Ç³, 2:ï¿½Ã¹ï¿½, 3:ï¿½ï¿½ï¿½ï¿½) - ï¿½âº»ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Ç³
+	int setTemperature;   // ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ - ï¿½âº»ï¿½ï¿½ 25ï¿½ï¿½
 };
 #endif

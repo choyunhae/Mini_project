@@ -19,24 +19,24 @@ void Washer::setMachineState(int machineState)
 }
 void Washer::stateView()
 {
-	cout << "Á¦Ç°¸í : " << getMachineName();
+	cout << "ï¿½ï¿½Ç°ï¿½ï¿½ : " << getMachineName();
 	if (this->getPowerFlag() == true)
 	{
-		cout << "(ON)" << " " << "¼³Á¤»óÅÂ : ";
+		cout << "(ON)" << " " << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ";
 		if (this->machineState == 1){
-			cout << "¹«µ¿ÀÛ";
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 		}
 		else if (this->machineState == 2)
 		{
-			cout << "ÀÏ¹Ý»¡·¡";
+			cout << "ï¿½Ï¹Ý»ï¿½ï¿½ï¿½";
 		}
 		else if (this->machineState == 3)
 		{
-			cout << "»îÀº»¡·¡";
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 		}
 		else if (this->machineState == 4)
 		{
-			cout << "°ÇÁ¶";
+			cout << "ï¿½ï¿½ï¿½ï¿½";
 		}
 		cout << endl;
 	}

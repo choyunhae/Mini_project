@@ -111,7 +111,7 @@ bool HomeAutomation::deleteAppliance(string machineName)
 			break;
 	}
 	if (i == applianceCnt)return false;
-	cout << "**Á¤¸»·Î »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?(Y/N) : ";
+	cout << "**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?(Y/N) : ";
 	cin >> ch;
 	if (ch == 'N')return false;
 	for (j = i; j < applianceCnt; j++)
@@ -124,7 +124,7 @@ bool HomeAutomation::deleteAppliance(string machineName)
 }
 void HomeAutomation::listDisplayAppliance()
 {
-	if (applianceCnt == 0){ cout << "µî·ÏµÈ °¡ÀüÁ¦Ç°ÀÌ ¾ø½À´Ï´Ù." << endl; }
+	if (applianceCnt == 0){ cout << "ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl; }
 	for (int i = 0; i < applianceCnt; i++)
 	{
 		applianceArray[i]->stateView();
@@ -136,7 +136,7 @@ bool HomeAutomation::controlAppliance(string machineName)
 	char ch;
 	if (applianceCnt == 0)
 	{
-		cout << "µî·ÏµÈ °¡ÀüÁ¦Ç°ÀÌ ¾ø½À´Ï´Ù. °¡ÀüÁ¦Ç°À» ¸ÕÀú µî·ÏÇÏ¼¼¿ä"
+		cout << "ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½"
 			<< endl;
 	}
 	for (i = 0; i < applianceCnt; i++)
@@ -146,12 +146,12 @@ bool HomeAutomation::controlAppliance(string machineName)
 	}
 	if (i == applianceCnt)
 	{
-		cout << "**ÇØ´çÇÏ´Â Á¦Ç°ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù." << endl;
+		cout << "**ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½." << endl;
 		return false;
 	}
 	if (applianceArray[i]->getPowerFlag() == false)
 	{
-		cout << "Àü¿øÀ» ÄÑ½Ã°Ú½À´Ï±î?(Y/N) : ";
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ½Ã°Ú½ï¿½ï¿½Ï±ï¿½?(Y/N) : ";
 		cin >> ch;
 		if (ch == 'Y'||ch=='y'){
 			applianceArray[i]->turnOn();
@@ -172,11 +172,11 @@ void HomeAutomation::setStateAppliance(Appliance *ap)
 	int n = 0;
 	if (dynamic_cast<Washer*>(ap))
 	{
-		cout << "1.¹«µ¿ÀÛ / 2.ÀÏ¹Ý»¡·¡ / 3.»îÀº»¡·¡ / 4.°ÇÁ¶ / 5.²ô±â : ";
+		cout << "1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / 2.ï¿½Ï¹Ý»ï¿½ï¿½ï¿½ / 3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / 4.ï¿½ï¿½ï¿½ï¿½ / 5.ï¿½ï¿½ï¿½ï¿½ : ";
 			cin >> num;
 			while (num<1 || num>5)
 			{
-				cout << "1.¹«µ¿ÀÛ / 2.º¸¿Â / 3.¹äÁþ±â / 4.µ¥¿ì±â / 5.²ô±â : ";
+				cout << "1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / 2.ï¿½ï¿½ï¿½ï¿½ / 3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / 4.ï¿½ï¿½ï¿½ï¿½ï¿½ / 5.ï¿½ï¿½ï¿½ï¿½ : ";
 				cin >> num;
 			}
 			if (num >= 1 && num <= 5)
@@ -191,22 +191,22 @@ void HomeAutomation::setStateAppliance(Appliance *ap)
 	}
 	else if (dynamic_cast<AirConditioner*>(ap))
 	{
-		cout << "1.¼ÛÇ³ / 2.³Ã¹æ / 3.³­¹æ / 4.²ô±â : ";
+		cout << "1.ï¿½ï¿½Ç³ / 2.ï¿½Ã¹ï¿½ / 3.ï¿½ï¿½ï¿½ï¿½ / 4.ï¿½ï¿½ï¿½ï¿½ : ";
 		cin >> num;
 		dynamic_cast<AirConditioner *>(ap)->setMachineState(num);
 		while (num<1 || num>4)
 		{
-			cout << "1.¼ÛÇ³ / 2.³Ã¹æ / 3.³­¹æ / 4.²ô±â : ";
+			cout << "1.ï¿½ï¿½Ç³ / 2.ï¿½Ã¹ï¿½ / 3.ï¿½ï¿½ï¿½ï¿½ / 4.ï¿½ï¿½ï¿½ï¿½ : ";
 			cin >> num;
 		}
 		if (num >= 1 && num <= 3){		
 			
 			while (1){
-				cout <<  "1.¿Âµµ ¿Ã¸®±â / 2.¿Âµµ ³»¸®±â / 3.¿ÂµµÁ¶Àý Á¾·á : " ;
+				cout <<  "1.ï¿½Âµï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ / 2.ï¿½Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / 3.ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " ;
 					cin >> n;
 					while (n<1|| n>3)
 					{
-						cout << "1.¿Âµµ ¿Ã¸®±â / 2.¿Âµµ ³»¸®±â / 3.¿ÂµµÁ¶Àý Á¾·á : " ;
+						cout << "1.ï¿½Âµï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ / 2.ï¿½Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / 3.ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : " ;
 						cin >> n;
 					}
 				if (n == 1){ ++(*dynamic_cast<AirConditioner *>(ap)); }
@@ -220,7 +220,7 @@ void HomeAutomation::setStateAppliance(Appliance *ap)
 	}
 	else if (dynamic_cast<RiceCooker*>(ap))
 	{
-		cout << "1.¹«µ¿ÀÛ / 2.º¸¿Â / 3.¹äÁþ±â / 4.µ¥¿ì±â / 5.²ô±â :  ";
+		cout << "1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / 2.ï¿½ï¿½ï¿½ï¿½ / 3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / 4.ï¿½ï¿½ï¿½ï¿½ï¿½ / 5.ï¿½ï¿½ï¿½ï¿½ :  ";
 		cin >> num;
 		if (num >= 1 && num <= 4)
 		{
@@ -231,7 +231,7 @@ void HomeAutomation::setStateAppliance(Appliance *ap)
 		}
 		while (num<1 || num>5)
 		{
-			cout << "1.¹«µ¿ÀÛ / 2.º¸¿Â / 3.¹äÁþ±â / 4.µ¥¿ì±â / 5.²ô±â : ";
+			cout << "1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / 2.ï¿½ï¿½ï¿½ï¿½ / 3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ / 4.ï¿½ï¿½ï¿½ï¿½ï¿½ / 5.ï¿½ï¿½ï¿½ï¿½ : ";
 			cin >> num;
 		}
 		

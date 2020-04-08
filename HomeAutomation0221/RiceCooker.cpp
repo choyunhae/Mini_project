@@ -18,24 +18,24 @@ void RiceCooker::setMachineState(int machineState)
 }
 void RiceCooker::stateView()
 {
-	cout << "Á¦Ç°¸í : " << getMachineName();
+	cout << "ï¿½ï¿½Ç°ï¿½ï¿½ : " << getMachineName();
 	if (this->getPowerFlag() == true)
 	{
-		cout << "(ON)" << " " << "¼³Á¤»óÅÂ : ";
+		cout << "(ON)" << " " << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ";
 		if (this->machineState == 1){
-			cout << "¹«µ¿ÀÛ";
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 		}
 		else if (this->machineState == 2)
 		{
-			cout << "º¸¿Â";
+			cout << "ï¿½ï¿½ï¿½ï¿½";
 		}
 		else if (this->machineState == 3)
 		{
-			cout << "¹äÁþ±â";
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 		}
 		else if (this->machineState == 4)
 		{
-			cout << "µ¥¿ì±â";
+			cout << "ï¿½ï¿½ï¿½ï¿½ï¿½";
 		}
 		cout << endl;
 	}

@@ -5,15 +5,15 @@
 class Washer : public Appliance
 {
 public:
-	Washer(); // Appliance´Â default»ý¼ºÀÚ·Î »ý¼º, machineState´Â ¹«µ¿ÀÛÀ¸·Î ÃÊ±âÈ­
-	Washer(string machineName, int powerConsumption); // Appliance´Â Overloaded »ý¼ºÀÚ·Î »ý¼º, machineState´Â ¹«µ¿ÀÛÀ¸·Î ÃÊ±âÈ­
+	Washer(); // Applianceï¿½ï¿½ defaultï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½, machineStateï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	Washer(string machineName, int powerConsumption); // Applianceï¿½ï¿½ Overloaded ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½, machineStateï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	// getter, setter member function
-	int getMachineState() const; // machineState ¸â¹ö °ª ¹ÝÈ¯ ÇÔ¼ö
-	void setMachineState(int machineState); // machineState ¸â¹ö ÃÊ±âÈ­ ÇÔ¼ö
+	int getMachineState() const; // machineState ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ô¼ï¿½
+	void setMachineState(int machineState); // machineState ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ô¼ï¿½
 	// member function
-	void stateView();  // °´Ã¼ÀÇ »óÅÂ Ãâ·Â
-	enum { NO_OPERATION = 1, GENERAL, BOIL, DRY }; // ¼¼Å¹±âÀÇ »óÅÂ¸¦ ³ªÅ¸³»´Â ¿­°ÅÇü »ó¼ö
+	void stateView();  // ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	enum { NO_OPERATION = 1, GENERAL, BOIL, DRY }; // ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 private:
-	int machineState; // Á¦Ç°»óÅÂ(1:¹«µ¿ÀÛ, 2:ÀÏ¹Ý»¡·¡, 3:»îÀº»¡·¡, 4:°ÇÁ¶)
+	int machineState; // ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½(1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 2:ï¿½Ï¹Ý»ï¿½ï¿½ï¿½, 3:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 4:ï¿½ï¿½ï¿½ï¿½)
 };
 #endif

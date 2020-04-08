@@ -1,18 +1,18 @@
 #include "HomeAutomation.h"
 #include "Power.h"
 
-int menu(char **menuList, int menuCnt); // Àü´ÞµÈ ¸Þ´º¸¦ Ãâ·ÂÇÏ°í Á¤È®ÇÑ ¸Þ´º¹øÈ£¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö
-int controlMenuSelect(string message, int menuCnt); // °¡ÀüÁ¦Ç°ÀÇ »óÅÂº¯°æ Ã³¸®¸¦ À§ÇÑ ¸Þ´º ÇÔ¼ö
-void displayTitle(string title); // Ã³¸®ÁßÀÎ ³»¿ë Ãâ·ÂÇÏ±â À§ÇÑ Å¸ÀÌÆ² Ãâ·ÂÇÔ¼ö 
-void screen(HomeAutomation &rHa, Power &rPw); // ÁÖ¸Þ´º¸¦ Ãâ·ÂÇÏ°í ¸Þ´º¸¦ ¼±ÅÃ¹Þ¾Æ ¹Ýº¹ÀûÀ¸·Î ÁÖ¸Þ´º¸¦ Ã³¸®ÇÏ´Â ÇÔ¼ö
-void listDisplayAppliance(HomeAutomation &rHa); // µî·ÏµÈ °¡ÀüÁ¦Ç°ÀÇ »óÅÂÃâ·Â
-void controlAppliance(HomeAutomation &rHa); // µî·ÏµÈ °¡ÀüÁ¦Ç° Á¦¾îÇÏ±â
-void addAppliance(HomeAutomation &rHa); // °¡ÀüÁ¦Ç° µî·Ï
-void deleteAppliance(HomeAutomation &rHa); // °¡ÀüÁ¦Ç° »èÁ¦
-void powerDisplay(Power &rPw, HomeAutomation &rHa);  // Àü·Â¼Ò¸ð·® Ãâ·Â
-int inputInteger(char *message);  //  message¸¦ Ãâ·ÂÇÏ°í Á¤¼ö°ª ÀÔ·Â ¹Þ¾Æ ¸®ÅÏ(¹®ÀÚ, ½Ç¼ö°ª ¿¹¿Ü Ã³¸®)
-int inputInteger(string message); //  message¸¦ Ãâ·ÂÇÏ°í Á¤¼ö°ª ÀÔ·Â ¹Þ¾Æ ¸®ÅÏ(¹®ÀÚ, ½Ç¼ö°ª ¿¹¿Ü Ã³¸®)
-void myFlush();  // cinÀÔ·Â ¹öÆÛ¸¦ ¸ðµÎ ºñ¿ì°í fail»óÅÂ¸¦ ÃÊ±â»óÅÂ·Î Àç¼³Á¤
+int menu(char **menuList, int menuCnt); // ï¿½ï¿½ï¿½Þµï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½È®ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+int controlMenuSelect(string message, int menuCnt); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½Ô¼ï¿½
+void displayTitle(string title); // Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ 
+void screen(HomeAutomation &rHa, Power &rPw); // ï¿½Ö¸Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¹Þ¾ï¿½ ï¿½Ýºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¸Þ´ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
+void listDisplayAppliance(HomeAutomation &rHa); // ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+void controlAppliance(HomeAutomation &rHa); // ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+void addAppliance(HomeAutomation &rHa); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½
+void deleteAppliance(HomeAutomation &rHa); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½
+void powerDisplay(Power &rPw, HomeAutomation &rHa);  // ï¿½ï¿½ï¿½Â¼Ò¸ï¿½ ï¿½ï¿½ï¿½
+int inputInteger(char *message);  //  messageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½, ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½)
+int inputInteger(string message); //  messageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½, ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½)
+void myFlush();  // cinï¿½Ô·ï¿½ ï¿½ï¿½ï¿½Û¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ failï¿½ï¿½ï¿½Â¸ï¿½ ï¿½Ê±ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ç¼³ï¿½ï¿½
 
 int main()
 {
@@ -25,11 +25,11 @@ int main()
 
 void screen(HomeAutomation &rHa, Power &rPw)
 {
-	char *menuList[] = { "°¡ÀüÁ¦Ç° »óÅÂÈ®ÀÎ ", "°¡ÀüÁ¦Ç° Á¦¾î ", "°¡ÀüÁ¦Ç° µî·Ï ", "°¡ÀüÁ¦Ç° »èÁ¦ ", "Á¾·á " };
+	char *menuList[] = { "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½ ", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ ", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ", "ï¿½ï¿½ï¿½ï¿½ " };
 	int menuCnt = sizeof(menuList) / sizeof(menuList[0]);
 	int menuNum;
 
-	displayTitle("È¨ ÄÉ¾î½Ã½ºÅÛ ½ÃÀÛ");
+	displayTitle("È¨ ï¿½É¾ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	while (true)
 	{
 		menuNum = menu(menuList, menuCnt);
@@ -42,62 +42,62 @@ void screen(HomeAutomation &rHa, Power &rPw)
 		case 4: deleteAppliance(rHa); break;
 		}
 	}
-	powerDisplay(rPw, rHa);                    // ¼Ò¸ð Àü·Â·® Ãâ·Â
-	displayTitle("È¨ ÄÉ¾î½Ã½ºÅÛ Á¾·á");
+	powerDisplay(rPw, rHa);                    // ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½
+	displayTitle("È¨ ï¿½É¾ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	return;
 }
-void listDisplayAppliance(HomeAutomation &rHa) // µî·ÏµÈ °¡ÀüÁ¦Ç°ÀÇ »óÅÂÃâ·Â
+void listDisplayAppliance(HomeAutomation &rHa) // ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
-	displayTitle("°¡ÀüÁ¦Ç° »óÅÂ º¸±â");
+	displayTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 	if (rHa.getApplianceCnt() == 0)
 	{
-		cout << "µî·ÏµÈ °¡Àü Á¦Ç°ÀÌ ¾ø½À´Ï´Ù" << endl;
+		cout << "ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½" << endl;
 	}
 	else
 	{
 		rHa.listDisplayAppliance();
 	}
-	displayTitle("°¡ÀüÁ¦Ç° »óÅÂ º¸±â Á¾·á");
+	displayTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 }
-void controlAppliance(HomeAutomation &rHa) // µî·ÏµÈ °¡ÀüÁ¦Ç° Á¦¾îÇÏ±â
+void controlAppliance(HomeAutomation &rHa) // ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 {
-	string machineName;  // Á¦Ç°¸í
+	string machineName;  // ï¿½ï¿½Ç°ï¿½ï¿½
 	bool res;
 
-	displayTitle("°¡ÀüÁ¦Ç° Á¦¾î ÇÏ±â");
+	displayTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½");
 	if (rHa.getApplianceCnt() == 0)
 	{
-		cout << "µî·ÏµÈ °¡ÀüÁ¦Ç°ÀÌ ¾ø½À´Ï´Ù. °¡ÀüÁ¦Ç°À» ¸ÕÀú µî·ÏÇÏ¼¼¿ä." << endl;
+		cout << "ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½." << endl;
 		return;
 	}
 
-	cout << "* Á¦¾îÇÒ Á¦Ç°¸í ÀÔ·Â : ";
+	cout << "* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½Ô·ï¿½ : ";
 	cin >> machineName;
 	res = rHa.controlAppliance(machineName);
 	if (res)
 	{
-		cout << "°¡Àü Á¦Ç°¸í : " << machineName << "ÀÇ Á¦¾î°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù." << endl << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ : " << machineName << "ï¿½ï¿½ ï¿½ï¿½ï¿½î°¡ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl << endl;
 	}
 	else
 	{
-		cout << "°¡Àü Á¦Ç°¸í : " << machineName << "ÀÇ Á¦¾î°¡ ½ÇÆÐÇÏ¿´½À´Ï´Ù." << endl << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ : " << machineName << "ï¿½ï¿½ ï¿½ï¿½ï¿½î°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl << endl;
 	}
 }
-void addAppliance(HomeAutomation &rHa) // °¡ÀüÁ¦Ç° µî·Ï
+void addAppliance(HomeAutomation &rHa) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½
 {
-	string machineName;  // Á¦Ç°¸í
-	int powerConsumption; // ½Ã°£´ç Àü·Â¼Ò¸ð·®
-	Appliance *ap;  // °¡ÀüÁ¦Ç° Å¬·¡½ºÀÇ Æ÷ÀÎÅÍ ¼±¾ð
+	string machineName;  // ï¿½ï¿½Ç°ï¿½ï¿½
+	int powerConsumption; // ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¼Ò¸ï¿½
+	Appliance *ap;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	bool res;
 
-	displayTitle("°¡ÀüÁ¦Ç° µî·Ï ÇÏ±â");
-	string applianceList = "1.¹ä¼Ü / 2.³Ã³­¹æ±â / 3.¼¼Å¹±â : ";
+	displayTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½");
+	string applianceList = "1.ï¿½ï¿½ï¿½ / 2.ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ / 3.ï¿½ï¿½Å¹ï¿½ï¿½ : ";
 	int applianceNum;
 
 	applianceNum = controlMenuSelect(applianceList, 3);
-	cout << "* Á¦Ç°¸í ÀÔ·Â( ¿¹)Å«¹ä¼Ü, ¼¼Å¹±â µî) : ";
+	cout << "* ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½Ô·ï¿½( ï¿½ï¿½)Å«ï¿½ï¿½ï¿½, ï¿½ï¿½Å¹ï¿½ï¿½ ï¿½ï¿½) : ";
 	cin >> machineName;
-	powerConsumption = inputInteger("* Á¦Ç° Àü·Â¼Ò¸ð·® ÀÔ·Â(Kw/H) : ");
+	powerConsumption = inputInteger("* ï¿½ï¿½Ç° ï¿½ï¿½ï¿½Â¼Ò¸ï¿½ ï¿½Ô·ï¿½(Kw/H) : ");
 
 	switch (applianceNum)
 	{
@@ -108,40 +108,40 @@ void addAppliance(HomeAutomation &rHa) // °¡ÀüÁ¦Ç° µî·Ï
 	res = rHa.addAppliance(ap);
 	if (res)
 	{
-		cout << "°¡Àü Á¦Ç°¸í : " << machineName << "ÀÇ µî·ÏÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù." << endl << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ : " << machineName << "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl << endl;
 	}
 	else
 	{
-		cout << "°¡Àü Á¦Ç°¸í : " << machineName << "ÀÇ µî·ÏÀÌ ½ÇÆÐÇÏ¿´½À´Ï´Ù." << endl << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ : " << machineName << "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl << endl;
 	}
 }
-void deleteAppliance(HomeAutomation &rHa) // °¡ÀüÁ¦Ç° »èÁ¦
+void deleteAppliance(HomeAutomation &rHa) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½
 {
-	string machineName;  // Á¦Ç°¸í
+	string machineName;  // ï¿½ï¿½Ç°ï¿½ï¿½
 	bool res;
 
-	displayTitle("°¡ÀüÁ¦Ç° »èÁ¦ ÇÏ±â");
+	displayTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½");
 
-	cout << "* Á¦Ç°¸í ÀÔ·Â( ¿¹)°Å½ÇÀüµî, ¼¼Å¹±â µî) : ";
+	cout << "* ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½Ô·ï¿½( ï¿½ï¿½)ï¿½Å½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å¹ï¿½ï¿½ ï¿½ï¿½) : ";
 	cin >> machineName;
 
 	res = rHa.deleteAppliance(machineName);
 	if (res)
 	{
-		cout << "°¡Àü Á¦Ç°¸í : " << machineName << "ÀÇ »èÁ¦°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù." << endl << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ : " << machineName << "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl << endl;
 	}
 	else
 	{
-		cout << "°¡Àü Á¦Ç°¸í : " << machineName << "ÀÇ »èÁ¦°¡ ½ÇÆÐÇÏ¿´½À´Ï´Ù." << endl << endl;
+		cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ : " << machineName << "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." << endl << endl;
 	}
 }
 
-void powerDisplay(Power &rPw, HomeAutomation &rHa)  // Àü·Â¼Ò¸ð·® Ãâ·Â
+void powerDisplay(Power &rPw, HomeAutomation &rHa)  // ï¿½ï¿½ï¿½Â¼Ò¸ï¿½ ï¿½ï¿½ï¿½
 {
 	int totalConsumption;
 
 	totalConsumption = rPw.calPowerConsumption(rHa);
-	cout << "°¡ÀüÁ¦Ç° ÃÑ Àü·Â¼Ò¸ð·® : " << totalConsumption << endl << endl;
+	cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ ï¿½ï¿½ï¿½Â¼Ò¸ï¿½ : " << totalConsumption << endl << endl;
 }
 
 int controlMenuSelect(string message, int menuCnt)
@@ -159,7 +159,7 @@ int controlMenuSelect(string message, int menuCnt)
 int menu(char **menuList, int menuCnt)
 {
 	int i;
-	int menuNum = 0; /* ÀÔ·ÂµÈ ¸Þ´º ¹øÈ£ ÀúÀå º¯¼ö*/
+	int menuNum = 0; /* ï¿½Ô·Âµï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 
 	cout << endl << "==================================" << endl;
 	for (i = 0; i<menuCnt; i++)
@@ -167,21 +167,21 @@ int menu(char **menuList, int menuCnt)
 		cout << i + 1 << "." << menuList[i] << endl;
 	}
 	cout << "==================================" << endl;
-	while (menuNum<1 || menuNum>menuCnt)  /* ¹üÀ§ ³»ÀÇ ¹øÈ£°¡ ÀÔ·ÂµÉ ¶§ ±îÁö ¹Ýº¹*/
+	while (menuNum<1 || menuNum>menuCnt)  /* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·Âµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½*/
 	{
-		menuNum = inputInteger("# ¸Þ´º¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		menuNum = inputInteger("# ï¿½Þ´ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ : ");
 
 	}
 	return menuNum;
 }
-void displayTitle(string title) // È­¸é Å¸ÀÌÆ² Ãâ·Â ÇÔ¼ö
+void displayTitle(string title) // È­ï¿½ï¿½ Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 {
 	cout << endl << "------------------------------" << endl;
 	cout << "    " << title << endl;
 	cout << "------------------------------" << endl;
 }
 
-// message¸¦ Ãâ·ÂÇÏ°í Á¤¼ö°ª ÀÔ·Â ¹Þ¾Æ ¸®ÅÏ(¹®ÀÚ, ½Ç¼ö°ª ¿¹¿Ü Ã³¸®)
+// messageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½, ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½)
 int inputInteger(char *message)
 {
 	int number;
@@ -198,7 +198,7 @@ int inputInteger(char *message)
 	}
 }
 
-// message¸¦ Ãâ·ÂÇÏ°í Á¤¼ö°ª ÀÔ·Â ¹Þ¾Æ ¸®ÅÏ(¹®ÀÚ, ½Ç¼ö°ª ¿¹¿Ü Ã³¸®)
+// messageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½, ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½)
 int inputInteger(string message)
 {
 	int number;
@@ -215,9 +215,9 @@ int inputInteger(string message)
 	}
 }
 
-// ±â´É : cinÀÔ·Â ¹öÆÛ¸¦ ¸ðµÎ ºñ¿ì°í fail»óÅÂ¸¦ ÃÊ±â»óÅÂ·Î Àç¼³Á¤
+// ï¿½ï¿½ï¿½ : cinï¿½Ô·ï¿½ ï¿½ï¿½ï¿½Û¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ failï¿½ï¿½ï¿½Â¸ï¿½ ï¿½Ê±ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ç¼³ï¿½ï¿½
 void myFlush()
 {
-	cin.clear();  // ¿¡·¯·Î ¼³Á¤µÇ¾îÀÖ´Â flag¸â¹öÀÇ °ªÀ» 0À¸·Î ÀçÃÊ±âÈ­
-	while (cin.get() != '\n');  // °³Çà¹®ÀÚ°¡ ³ª¿Ã¶§±îÁö ¹öÆÛ³»ÀÇ ¸ðµç ¹®ÀÚ Áö¿ò
+	cin.clear();  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Ö´ï¿½ flagï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê±ï¿½È­
+	while (cin.get() != '\n');  // ï¿½ï¿½ï¿½à¹®ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
